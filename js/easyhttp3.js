@@ -1,11 +1,8 @@
 class EasyHTTP {
-  get(url) {
-    return new Promise((resolve, reject) => {
-      fetch(url)
-        .then(response => response.json())
-        .then(data => resolve(data))
-        .catch(error => reject(error))
-    });
+  async get(url) {
+    const response = await fetch(url);
+    const responseData = await response.json();
+    return responseData;
   }
 
   post(url, data) {
